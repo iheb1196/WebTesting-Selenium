@@ -27,7 +27,7 @@ public class BasicTest extends TestHelper {
     Fill in loginLogoutTest() and login mehtod in TestHelper, so that the test passes correctly.
 
      */
-     @Test
+   /*  @Test
     public void loginLogoutTest(){
 
         login("sabrine", "123456");
@@ -66,7 +66,7 @@ public class BasicTest extends TestHelper {
 
      */
     // @Test
-    public void loginFalsePassword() {
+  /*  public void loginFalsePassword() {
 
     }
    /* @Test
@@ -180,6 +180,51 @@ public class BasicTest extends TestHelper {
         
         
     }*/
+   /* @Test
+    public void IncreaseQtyProductTest() {
+    	driver.get("https://mysterious-garden-48544.herokuapp.com/");
+    	By addToCartButtonXpath = By.xpath("//*[@id=\"Ref110 T-Shirt_entry\"]/div[2]/form/input[1]");
+        WebElement addToCart = driver.findElement(addToCartButtonXpath);   
+        addToCart.click();
+        By increaseQtyButtonXpath = By.xpath("//*[@id="current_item"]/td[5]/a");
+        WebElement increaseQty = driver.findElement(increaseQtyButtonXpath);   
+        increaseQty.click();
+      
+        By qtyButtonXpath=By.xpath("//*[@id=\"current_item\"]/td[1]");
+        WebElement qty=driver.findElement(qtyButtonXpath);
+        
+        String quantity=qty.getText();
+        String expectedQty="2x";
+        assertEquals(expectedQty,quantity);
+        
+    }*/
+    
+   /* @Test
+    public void deleteItemTest() {
+    	driver.get("https://mysterious-garden-48544.herokuapp.com/");
+    	By addToCartButtonXpath = By.xpath("//*[@id=\"Ref110 T-Shirt_entry\"]/div[2]/form/input[1]");
+        WebElement addToCart = driver.findElement(addToCartButtonXpath);   
+        addToCart.click();
+        driver.findElement(By.linkText("X")).click();
+        WebElement lala =driver.findElement(By.id("notice"));
+        String msg=lala.getText();
+        assertEquals("Item successfully deleted from cart.",msg);
+    }*/
+    @Test
+    public void deleteAllCartTest() {
+    	driver.get("https://mysterious-garden-48544.herokuapp.com/");
+    	By addToCartButtonXpath = By.xpath("//*[@id=\"Ref110 T-Shirt_entry\"]/div[2]/form/input[1]");
+        WebElement addToCart = driver.findElement(addToCartButtonXpath);   
+        addToCart.click();
+        By emptyCartButtonXpath = By.xpath("//*[@id=\"cart\"]/form[1]/input[2]");
+        WebElement emptyCart = driver.findElement(emptyCartButtonXpath);   
+        emptyCart.click();
+        WebElement lala =driver.findElement(By.id("notice"));
+        String msg=lala.getText();
+        assertEquals("Cart successfully deleted.",msg);
+        
+    	
+    }
     
 
 }
